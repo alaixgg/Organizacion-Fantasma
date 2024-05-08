@@ -8,7 +8,11 @@ class Payroll(models.Model):
     payment_date = models.DateTimeField(default=timezone.now)
     pay = models.IntegerField()
     
-
+    
+class verification(models.Model):
+    pay= models.BooleanField(default=False)
+    
+    
     def __str__(self):
-        return f"Si hizo el pago de nomina a {self.user.name}{self.user.last_name} por {self.pay}, el saldo de su cuenta es de {self.user.balance} "
+        return f"Se hizo el pago de nomina a {self.user.name}{self.user.last_name} por {self.pay}, el saldo de su cuenta es de {self.user.balance} "
     
