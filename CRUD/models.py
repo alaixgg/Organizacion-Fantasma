@@ -1,16 +1,10 @@
 from django.db import models
+from django.utils import timezone
 
-class Department(models.Model):
-    name = models.CharField(max_length=50)
 
+# Create your models here.
 class user(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    phone = models.IntegerField()
-    salary = models.IntegerField()
-    info = models.CharField(max_length=180)
     age = models.IntegerField(blank=False, null=False)
-    email = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-    department = models.ForeignKey(Department, on_delete=models.CASCADE)
-    balance = models.IntegerField()

@@ -1,11 +1,12 @@
+from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 from rest_framework import generics
 from .models import user
-from .models import Department
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
 from .serializers import UserSerializer
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from rest_framework import generics, status
+from rest_framework.response import Response
 
 def index(request):
     #Logica 
@@ -35,27 +36,21 @@ class UserDeleteView(DeleteView):
     model = user
     success_url = reverse_lazy('user_list')
     
-#Departaments
-class DepartamentsListCreate(generics.ListCreateAPIView):
-    queryset = Department.objects.all()
-    serializer_class = UserSerializer
     
-class DepartamentsListView(ListView):
-    model = Department
-    template_name = 'department_list.html'
+    def __str__(self):
+        return f'{self.name} {self.last_name}'
+    
+class UserListCreateAPIView(generics.ListCreateAPIView):
+    queryset = user.objects.all()
+    serializer_class = UserSerializer
 
-class DepartmentCreateView(CreateView):
-    model = Department
-    fields = ['name']
-    template_name = 'Department_form.html'
-    success_url = reverse_lazy('Department_list')
+class UserRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = user.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = 'pk'
 
-class DepartmentUpdateView(UpdateView):
-    model = Department
-    fields = ['name']
-    template_name = 'Department_form.html'
-    success_url = reverse_lazy('Department_list')
-
-class DepartmentDeleteView(DeleteView):
-    model = Department
-    success_url = reverse_lazy('Department_list')
+    # Override para personalizar la respuesta de eliminación
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response({'message': 'User deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
