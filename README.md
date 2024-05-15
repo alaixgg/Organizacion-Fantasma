@@ -4,6 +4,24 @@ PROYECTO TERCER CORTE
 
 Proyecto de programación avanzada
 
+## ENDPOINTS para usar API CRUD
+
+User endpoints:
+
+POST /api/users/ : Crear un nuevo usuario.
+GET /api/users/ : Obtener la lista de usuarios.
+GET /api/users/<int:pk>/ : Obtener un usuario específico.
+PUT /api/users/<int:pk>/ : Actualizar un usuario existente.
+DELETE /api/users/<int:pk>/ : Eliminar un usuario.
+
+Department endpoints:
+
+POST /api/departments/ // Crear un nuevo departamento.
+GET /api/departments/list/ // Obtener la lista de departamentos.
+GET /api/departments/<int:pk>/ // Obtener un departamento específico.
+PUT /api/departments/<int:pk>/ // Actualizar un departamento existente.
+DELETE /api/departments/<int:pk>/ // Eliminar un departamento.
+
 
 Introducción:
 En el mundo empresarial, la gestión eficiente de la nómina y los recursos humanos
