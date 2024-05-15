@@ -6,22 +6,46 @@ Proyecto de programación avanzada
 
 ## ENDPOINTS para usar API CRUD
 
-User endpoints:
+## User endpoints:
 
-POST /api/users/ : Crear un nuevo usuario.
-GET /api/users/ : Obtener la lista de usuarios.
-GET /api/users/<int:pk>/ : Obtener un usuario específico.
-PUT /api/users/<int:pk>/ : Actualizar un usuario existente.
-DELETE /api/users/<int:pk>/ : Eliminar un usuario.
+# Crear un nuevo usuario.
 
-Department endpoints:
+POST /api/users/ 
 
-POST /api/departments/ // Crear un nuevo departamento.
-GET /api/departments/list/ // Obtener la lista de departamentos.
-GET /api/departments/<int:pk>/ // Obtener un departamento específico.
-PUT /api/departments/<int:pk>/ // Actualizar un departamento existente.
-DELETE /api/departments/<int:pk>/ // Eliminar un departamento.
+# Obtener la lista de usuarios.
 
+GET /api/users/  
+
+# Obtener un usuario específico.
+
+GET /api/users/<int:pk>/
+
+# Actualizar un usuario existente.
+
+PUT /api/users/<int:pk>/  
+
+
+# Eliminar un usuario.
+DELETE /api/users/<int:pk>/ 
+
+
+## Department endpoints:
+
+# Crear un nuevo departamento.
+POST /api/departments/
+
+# Obtener la lista de departamentos.
+GET /api/departments/list/ 
+
+# Obtener un departamento específico.
+GET /api/departments/<int:pk>/ 
+
+# Actualizar un departamento existente.
+PUT /api/departments/<int:pk>/ 
+
+# Eliminar un departamento.
+
+DELETE /api/departments/<int:pk>/ 
 
 Introducción:
 En el mundo empresarial, la gestión eficiente de la nómina y los recursos humanos
