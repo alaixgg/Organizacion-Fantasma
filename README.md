@@ -1,3 +1,8 @@
+Requiere un celery 
+
+Para instalar 
+<pip install celery django-celery-beat>
+
 # Organizacion-Fantasma
 
 PROYECTO TERCER CORTE
